@@ -13,12 +13,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CombinationImageView combinationImageView = (CombinationImageView) findViewById(R.id.combination);
-        combinationImageView.addImageView(R.drawable.favicon);
-        combinationImageView.addImageView(R.drawable.favicon);
-        combinationImageView.addImageView(R.drawable.favicon);
-        combinationImageView.addImageView(R.drawable.favicon);
-        combinationImageView.addImageView(R.drawable.favicon);
-
+        combinationImageView.removeView(0);
+        combinationImageView.removeView(1);
     }
 
 
