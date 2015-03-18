@@ -9,8 +9,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -23,18 +21,12 @@ import java.util.List;
  */
 public class CombinationImageView extends View {
 
-    private Context mContext;
 
     private Drawable first_drawable;
     private Drawable second_drawable;
     private Drawable third_drawable;
     private Drawable fourth_drawable;
 
-    private static final String INSTANCE_STATE = "saved_instance";
-    private static final String INSTANCE_FIRSR_IMAGE_SRC = "first_image_src";
-    private static final String INSTANCE_SECOND_IMAGE_SRC = "second_image_src";
-    private static final String INSTANCE_THIRD_IMAGE_SRC = "third_image_src";
-    private static final String INSTANCE_FOURTH_IMAGE_SRC = "fourth_image_src";
 
     private static List<Bitmap> bitmaps = new ArrayList<Bitmap>();
 
@@ -51,7 +43,6 @@ public class CombinationImageView extends View {
     public CombinationImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mContext = context;
         final TypedArray attributes = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CombinationImageView,
                 defStyleAttr, 0);
          first_drawable = attributes.getDrawable(R.styleable.CombinationImageView_first_image_src);
@@ -206,55 +197,26 @@ public class CombinationImageView extends View {
     }
 
 
-
-    @Override
-    protected Parcelable onSaveInstanceState() {
-        final Bundle bundle = new Bundle();
-        bundle.putParcelable(INSTANCE_STATE, super.onSaveInstanceState());
-//        bundle.putFloat(INSTANCE_FIRST_WIDTH, first_width);
-//        bundle.putFloat(INSTANCE_SECOND_WIDTH, second_width);
-//        bundle.putFloat(INSTANCE_THIRD_WIDTH, third_width);
-//        bundle.putInt(INSTANCE_FIRST_COLOR, first_color);
-//        bundle.putInt(INSTANCE_SECOND_COLOR, second_color);
-//        bundle.putInt(INSTANCE_THIRD_COLOR, third_color);
-        return bundle;
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Parcelable state) {
-        if (state instanceof Bundle) {
-            final Bundle bundle = (Bundle) state;
-//            first_width = bundle.getFloat(INSTANCE_FIRST_WIDTH);
-//            second_width = bundle.getFloat(INSTANCE_SECOND_WIDTH);
-//            third_width = bundle.getFloat(INSTANCE_THIRD_WIDTH);
-//            first_color = bundle.getInt(INSTANCE_FIRST_COLOR);
-//            second_color = bundle.getInt(INSTANCE_SECOND_COLOR);
-//            third_width = bundle.getInt(INSTANCE_THIRD_COLOR);
-            super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
-        }
-        super.onRestoreInstanceState(state);
-    }
-
     private static void adjustBitmapsSize(float totalWidth, float totalHeight) {
         switch (bitmaps.size()) {
             case 2:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalHeight, b.getHeight())));
+                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth, totalHeight, b.getWidth(), b.getHeight())));
                 }
                 break;
             case 3:
             case 4:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalHeight / 2, b.getHeight())));
+                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth / 2, totalHeight / 2, b.getWidth(), b.getHeight())));
                 }
                 break;
             case 5:
             case 6:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalHeight / 2, b.getHeight())));
+                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 2, b.getWidth(), b.getHeight())));
                 }
                 break;
             case 7:
@@ -263,7 +225,7 @@ public class CombinationImageView extends View {
                 default:
                     for (int i = 0; i < bitmaps.size(); i++) {
                         Bitmap b = bitmaps.get(i);
-                        bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalHeight / 3, b.getHeight())));
+                        bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 3, b.getWidth(), b.getHeight())));
                     }
                     break;
 
@@ -287,11 +249,31 @@ public class CombinationImageView extends View {
     }
 
     private static int finalWidth(float viewWidth, float selfWidth) {
-        return viewWidth > selfWidth ? (int)selfWidth : (int) viewWidth;
+        int width;
+
+        if (viewWidth < selfWidth) {
+           width = (int)viewWidth;
+       } else {
+            width = (int)selfWidth;
+        }
+       return  width;
     }
 
-    private static int finalHeight(float viewHeight, float selfHeight) {
-        return viewHeight > selfHeight ? (int)selfHeight : (int)(viewHeight);
+    private static int finalHeight(float viewWidth, float viewHeight, float selfWidth, float selfHeight) {
+        int width;
+        int height;
+        float ratio = selfHeight / selfWidth;
+        if (viewWidth < selfWidth) {
+            width = (int)viewWidth;
+        } else {
+            width = (int)selfWidth;
+        }
+        if (width * ratio > viewHeight) {
+            height = (int)viewHeight;
+        } else {
+            height = (int) (width * ratio);
+        }
+        return height;
     }
 
     private static Bitmap drawableToBitmap(Drawable drawable) {

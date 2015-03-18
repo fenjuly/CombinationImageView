@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.fenjuly.combinationimageview.CombinationImageView
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    custom:first_image_src="@drawable/ic_launcher"
+    custom:second_image_src="@drawable/ic_launcher"
+    custom:third_image_src="@drawable/ic_launcher"
+    custom:fourth_image_src="@drawable/ic_launcher"
+    />
+
+</LinearLayout>
