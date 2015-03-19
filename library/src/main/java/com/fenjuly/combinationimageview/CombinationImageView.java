@@ -180,6 +180,7 @@ public class CombinationImageView extends View {
                 canvas.drawBitmap(bitmaps.get(7), getPaddingLeft() + total_width / 2, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
             break;
             case 9:
+            default:
                 Log.e("9", "invoked");
                 canvas.drawBitmap(bitmaps.get(0), getPaddingLeft(), getPaddingTop() + total_height * 2 / 3, new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(1), getPaddingLeft() + total_width / 3, getPaddingTop() + total_height * 2 / 3, new Paint(Paint.ANTI_ALIAS_FLAG));
@@ -190,7 +191,7 @@ public class CombinationImageView extends View {
                 canvas.drawBitmap(bitmaps.get(6), getPaddingLeft() , getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(7), getPaddingLeft() + total_width / 3, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(8), getPaddingLeft() + total_width * 2 / 3, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
-            default:
+
                 break;
         }
 
