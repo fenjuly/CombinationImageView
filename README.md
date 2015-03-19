@@ -41,8 +41,10 @@ In this lib, there are three methods provided for you.
  
 you can use these method like this:
   
-	 number5 = (CombinationImageView) findViewById(R.id.number5);
-	 number5.addImageView(R.drawable.example5);  
+  ```java
+  number5 = (CombinationImageView) findViewById(R.id.number5);
+  number5.addImageView(R.drawable.example5);
+  ```  
 	 
 * **Delete View in Code**
   
