@@ -22,13 +22,9 @@ import java.util.List;
 public class CombinationImageView extends View {
 
 
-    private Drawable first_drawable;
-    private Drawable second_drawable;
-    private Drawable third_drawable;
-    private Drawable fourth_drawable;
-
-
     private  List<Bitmap> bitmaps = new ArrayList<>();
+
+    private static int[] default_images_reses = new int[] {R.styleable.CombinationImageView_first_image_src, R.styleable.CombinationImageView_second_image_src, R.styleable.CombinationImageView_third_image_src, R.styleable.CombinationImageView_fourth_image_src};
 
     public CombinationImageView(Context context) {
         super(context);
@@ -43,42 +39,25 @@ public class CombinationImageView extends View {
 
         final TypedArray attributes = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CombinationImageView,
                 defStyleAttr, 0);
-         first_drawable = attributes.getDrawable(R.styleable.CombinationImageView_first_image_src);
-         second_drawable = attributes.getDrawable(R.styleable.CombinationImageView_second_image_src);
-         third_drawable = attributes.getDrawable(R.styleable.CombinationImageView_third_image_src);
-         fourth_drawable = attributes.getDrawable(R.styleable.CombinationImageView_fourth_image_src);
-        if (first_drawable != null) {
-            Bitmap bitmap = drawableToBitmap(first_drawable);
-            addImageView(bitmap);
-        }
-        if (second_drawable != null) {
-            Bitmap bitmap = drawableToBitmap(second_drawable);
-            addImageView(bitmap);
-        }
-        if (third_drawable != null) {
-            Bitmap bitmap = drawableToBitmap(third_drawable);
-            addImageView(bitmap);
-        }
-        if (fourth_drawable != null) {
-            Bitmap bitmap = drawableToBitmap(fourth_drawable);
-            addImageView(bitmap);
-        }
 
+        for (int default_image_res : default_images_reses) {
+            Drawable drawable = attributes.getDrawable(default_image_res);
+            if (drawable != null) {
+                Bitmap bitmap = drawableToBitmap(drawable);
+                addImageView(bitmap);
+            }
+        }
         attributes.recycle();
     }
 
     public void addImageView(String path) {
         Bitmap bitmap = BitmapFactory.decodeFile(path);
-        if (bitmap != null) {
-            bitmaps.add(bitmap);
-        }
+        addImageView(bitmap);
     }
 
     public void addImageView(int resId) {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
-        if (bitmap != null) {
-            bitmaps.add(bitmap);
-        }
+        addImageView(bitmap);
     }
 
     public void addImageView(Bitmap bitmap) {
