@@ -30,8 +30,6 @@ public class CombinationImageView extends View {
 
     private  List<Bitmap> bitmaps = new ArrayList<>();
 
-
-
     public CombinationImageView(Context context) {
         super(context);
     }
