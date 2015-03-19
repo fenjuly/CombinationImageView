@@ -6,6 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        />
 
     <com.fenjuly.combinationimageview.CombinationImageView
         android:layout_marginTop="8dp"

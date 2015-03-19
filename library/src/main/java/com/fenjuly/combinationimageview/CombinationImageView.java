@@ -125,8 +125,8 @@ public class CombinationImageView extends View {
         switch (total_bitmap_size) {
             case 2:
                 Log.e("2", "invoked");
-                canvas.drawBitmap(bitmaps.get(0), getPaddingLeft(), getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
-                canvas.drawBitmap(bitmaps.get(1), getPaddingLeft() + total_width / 2, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(0), getPaddingLeft(), getPaddingTop() + total_height / 4, new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(1), getPaddingLeft() + total_width / 2, getPaddingTop() + total_height / 4, new Paint(Paint.ANTI_ALIAS_FLAG));
             break;
             case 3:
                 Log.e("3", "invoked");
@@ -203,7 +203,7 @@ public class CombinationImageView extends View {
             case 2:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createScaledBitmap(b, (int)totalWidth / 2, (int)totalHeight, true));
+                    bitmaps.set(i, Bitmap.createScaledBitmap(b, (int)totalWidth / 2, (int)totalHeight / 2, true));
                 }
                 break;
             case 3:
