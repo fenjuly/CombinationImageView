@@ -28,7 +28,7 @@ public class CombinationImageView extends View {
     private Drawable fourth_drawable;
 
 
-    private static List<Bitmap> bitmaps = new ArrayList<Bitmap>();
+    private  List<Bitmap> bitmaps = new ArrayList<>();
 
 
 
@@ -146,17 +146,17 @@ public class CombinationImageView extends View {
                 canvas.drawBitmap(bitmaps.get(0), getPaddingLeft(), getPaddingTop() + total_height / 2, new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(1), getPaddingLeft() + total_width / 3, getPaddingTop() + total_height / 2, new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(2), getPaddingLeft() + total_width * 2 / 3, getPaddingTop() + total_height / 2, new Paint(Paint.ANTI_ALIAS_FLAG));
-                canvas.drawBitmap(bitmaps.get(3), getPaddingLeft() + total_width / 6, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
-                canvas.drawBitmap(bitmaps.get(4), getPaddingLeft() + total_width / 2, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(3), getPaddingLeft() + total_width / 6, getPaddingTop() + total_height / 6, new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(4), getPaddingLeft() + total_width / 2, getPaddingTop() + total_height /6, new Paint(Paint.ANTI_ALIAS_FLAG));
             break;
             case 6:
                 Log.e("6", "invoked");
                 canvas.drawBitmap(bitmaps.get(0), getPaddingLeft(), getPaddingTop() + total_height / 2, new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(1), getPaddingLeft() + total_width / 3, getPaddingTop() + total_height / 2, new Paint(Paint.ANTI_ALIAS_FLAG));
                 canvas.drawBitmap(bitmaps.get(2), getPaddingLeft() + total_width * 2 / 3, getPaddingTop() + total_height / 2, new Paint(Paint.ANTI_ALIAS_FLAG));
-                canvas.drawBitmap(bitmaps.get(3), getPaddingLeft(), getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
-                canvas.drawBitmap(bitmaps.get(4), getPaddingLeft() + total_width / 3, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
-                canvas.drawBitmap(bitmaps.get(5), getPaddingLeft() + total_width * 2 / 3, getPaddingTop(), new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(3), getPaddingLeft(), getPaddingTop() + total_height / 6, new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(4), getPaddingLeft() + total_width / 3, getPaddingTop() + total_height / 6, new Paint(Paint.ANTI_ALIAS_FLAG));
+                canvas.drawBitmap(bitmaps.get(5), getPaddingLeft() + total_width * 2 / 3, getPaddingTop() + total_height / 6, new Paint(Paint.ANTI_ALIAS_FLAG));
             break;
             case 7:
                 Log.e("7", "invoked");
@@ -197,36 +197,31 @@ public class CombinationImageView extends View {
     }
 
 
-    private static void adjustBitmapsSize(float totalWidth, float totalHeight) {
+    private  void adjustBitmapsSize(float totalWidth, float totalHeight) {
         switch (bitmaps.size()) {
             case 2:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth, totalHeight, b.getWidth(), b.getHeight()), true));
+                    bitmaps.set(i, Bitmap.createScaledBitmap(b, (int)totalWidth / 2, (int)totalHeight, true));
                 }
                 break;
             case 3:
             case 4:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth / 2, totalHeight / 2, b.getWidth(), b.getHeight()), true));
+                    bitmaps.set(i, Bitmap.createScaledBitmap(b, (int)totalWidth / 2, (int)totalHeight / 2, true));
 
                 }
                 break;
             case 5:
             case 6:
-                for (int i = 0; i < bitmaps.size(); i++) {
-                    Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 2, b.getWidth(), b.getHeight()), true));
-                }
-                break;
             case 7:
             case 8:
             case 9:
                 default:
                     for (int i = 0; i < bitmaps.size(); i++) {
                         Bitmap b = bitmaps.get(i);
-                        bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 3, b.getWidth(), b.getHeight()), true));
+                        bitmaps.set(i, Bitmap.createScaledBitmap(b, (int)totalWidth / 3, (int)totalHeight / 3, true));
                     }
                     break;
 
@@ -236,6 +231,7 @@ public class CombinationImageView extends View {
     public int getNumbersOfView() {
         return bitmaps.size();
     }
+
 
     public void removeView(int position) {
         if (position >= 0 && position < bitmaps.size()) {
@@ -249,33 +245,6 @@ public class CombinationImageView extends View {
         bitmaps.clear();
     }
 
-    private static int finalWidth(float viewWidth, float selfWidth) {
-        int width;
-
-        if (viewWidth < selfWidth) {
-           width = (int)viewWidth;
-       } else {
-            width = (int)selfWidth;
-        }
-       return  width;
-    }
-
-    private static int finalHeight(float viewWidth, float viewHeight, float selfWidth, float selfHeight) {
-        int width;
-        int height;
-        float ratio = selfHeight / selfWidth;
-        if (viewWidth < selfWidth) {
-            width = (int)viewWidth;
-        } else {
-            width = (int)selfWidth;
-        }
-        if (width * ratio > viewHeight) {
-            height = (int)viewHeight;
-        } else {
-            height = (int) (width * ratio);
-        }
-        return height;
-    }
 
     private static Bitmap drawableToBitmap(Drawable drawable) {
         int w = drawable.getIntrinsicWidth();

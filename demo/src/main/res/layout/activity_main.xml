@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#FF6666"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-<com.fenjuly.combinationimageview.CombinationImageView
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    custom:first_image_src="@drawable/girl"
-    custom:third_image_src="@drawable/favicon"
-    custom:fourth_image_src="@drawable/avatar"
-    />
+
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        />
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        custom:fourth_image_src="@drawable/example4"
+        />
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:id="@+id/number5"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        custom:fourth_image_src="@drawable/example4"
+        />
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:id="@+id/number6"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        custom:fourth_image_src="@drawable/example4"
+        />
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:id="@+id/number7"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        custom:fourth_image_src="@drawable/example4"
+        />
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:id="@+id/number8"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        custom:fourth_image_src="@drawable/example4"
+        />
+
+    <com.fenjuly.combinationimageview.CombinationImageView
+        android:id="@+id/number9"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        custom:first_image_src="@drawable/example1"
+        custom:second_image_src="@drawable/example2"
+        custom:third_image_src="@drawable/example3"
+        custom:fourth_image_src="@drawable/example4"
+        />
 
 </LinearLayout>
