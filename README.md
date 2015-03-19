@@ -4,7 +4,7 @@
 
 This's just a simple component that hold more than one image into a view.You are probably familiar with WeChat, yeah! just like the avatar of wechat group.
 
- There is no limit how many images you can add in the view, but the maxium number can be shown is nine. 
+ There is no limits how many images you can add in the view, but the maxium number can be shown is nine. 
  
  
 ###ScreenShot
