@@ -202,21 +202,22 @@ public class CombinationImageView extends View {
             case 2:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth, totalHeight, b.getWidth(), b.getHeight())));
+                    bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth, totalHeight, b.getWidth(), b.getHeight()), true));
                 }
                 break;
             case 3:
             case 4:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth / 2, totalHeight / 2, b.getWidth(), b.getHeight())));
+                    bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 2, b.getWidth()), finalHeight(totalWidth / 2, totalHeight / 2, b.getWidth(), b.getHeight()), true));
+
                 }
                 break;
             case 5:
             case 6:
                 for (int i = 0; i < bitmaps.size(); i++) {
                     Bitmap b = bitmaps.get(i);
-                    bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 2, b.getWidth(), b.getHeight())));
+                    bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 2, b.getWidth(), b.getHeight()), true));
                 }
                 break;
             case 7:
@@ -225,7 +226,7 @@ public class CombinationImageView extends View {
                 default:
                     for (int i = 0; i < bitmaps.size(); i++) {
                         Bitmap b = bitmaps.get(i);
-                        bitmaps.set(i, Bitmap.createBitmap(b, 0, 0, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 3, b.getWidth(), b.getHeight())));
+                        bitmaps.set(i, Bitmap.createScaledBitmap(b, finalWidth(totalWidth / 3, b.getWidth()), finalHeight(totalWidth / 3, totalHeight / 3, b.getWidth(), b.getHeight()), true));
                     }
                     break;
 
