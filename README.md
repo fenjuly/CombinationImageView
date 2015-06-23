@@ -56,7 +56,7 @@ Also provide servial methods.
 
 
 ###Other
-All right `unreserved`!
+All rights `unreserved`!
 
 It's my pleasure anybody use this lib.
 
