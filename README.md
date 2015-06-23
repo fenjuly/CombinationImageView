@@ -50,9 +50,9 @@ you can use these method like this:
   
 Also provide servial methods.
 
-* ```public int getNumbersOfView()``` 
+* ```public int getViewsCount()``` 
 * ```public void removeView(int position)```
-* ```public void removeAllView()```
+* ```public void removeAllViews()```
 
 
 ###Other
