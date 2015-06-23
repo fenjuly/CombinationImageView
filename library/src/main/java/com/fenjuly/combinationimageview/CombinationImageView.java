@@ -169,15 +169,15 @@ public class CombinationImageView extends View {
             case 5:
                 for (int i = 0 ; i < total_bitmap_size; i++) {
                     TinyPic tinyPic = tinyPics.get(i);
-                    tinyPic.left = getPaddingLeft() + (i % 3) * total_width / 3 + (i / 3) * total_width / 4;
-                    tinyPic.top = getPaddingTop() + (1 - i / 3) * total_height / 3 + total_height / 4;
+                    tinyPic.left = getPaddingLeft() + (i % 3) * total_width / 3 + (i / 3) * total_width / 6;
+                    tinyPic.top = getPaddingTop() + (1 - i / 3) * total_height / 3 + total_height / 6;
                 }
                 break;
             case 6:
                 for (int i = 0 ; i < total_bitmap_size; i++) {
                     TinyPic tinyPic = tinyPics.get(i);
                     tinyPic.left = getPaddingLeft() + (i % 3) * total_width / 3;
-                    tinyPic.top = getPaddingTop() + (1 - i / 3) * total_height / 3 + total_height / 4;
+                    tinyPic.top = getPaddingTop() + (1 - i / 3) * total_height / 3 + total_height / 6;
                 }
                 break;
             case 7:
@@ -190,7 +190,7 @@ public class CombinationImageView extends View {
             case 8:
                 for (int i = 0 ; i < total_bitmap_size; i++) {
                     TinyPic tinyPic = tinyPics.get(i);
-                    tinyPic.left = getPaddingLeft() + (i % 3) * total_width / 3 + (i / 6) * total_width / 4;
+                    tinyPic.left = getPaddingLeft() + (i % 3) * total_width / 3 + (i / 6) * total_width / 6;
                     tinyPic.top = getPaddingTop() + (2 - i / 3) * total_height / 3;
                 }
                 break;
