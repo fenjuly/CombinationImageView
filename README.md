@@ -56,7 +56,7 @@ Also provide servial methods.
 
 
 ###LICENSE
-LICENSE UNDER MIT
+[LICENSE UNDER MIT](https://github.com/fenjuly/CombinationImageView/raw/master/LICENSE)
 
 
 
