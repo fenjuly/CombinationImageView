@@ -55,9 +55,8 @@ Also provide servial methods.
 * ```public void removeAllViews()```
 
 
-###Other
-All rights `unreserved`!
+###LICENSE
+LICENSE UNDER MIT
 
-It's my pleasure anybody use this lib.
 
 
